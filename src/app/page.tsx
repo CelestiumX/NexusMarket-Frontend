@@ -1,103 +1,103 @@
-import Image from "next/image";
+import Link from "next/link"
+import { ArrowRight, CircuitBoard, Rocket, ShieldCheck, Zap } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden py-20 md:py-32">
+        <div className="absolute inset-0 z-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#080E21]/0 via-[#080E21]/50 to-[#080E21]"></div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        {/* Animated circuit lines */}
+        <div className="absolute inset-0 z-0 opacity-20">
+          <div className="absolute left-1/4 top-1/3 h-px w-64 animate-pulse bg-gradient-to-r from-[#0075FF] to-transparent"></div>
+          <div className="absolute right-1/4 top-2/3 h-px w-64 animate-pulse bg-gradient-to-l from-[#00C2FF] to-transparent"></div>
+          <div className="absolute bottom-1/4 left-1/3 h-64 w-px animate-pulse bg-gradient-to-t from-[#9D4EDD] to-transparent"></div>
+          <div className="absolute right-1/3 top-1/4 h-64 w-px animate-pulse bg-gradient-to-b from-[#FF41B4] to-transparent"></div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="container relative z-20">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#0075FF]/30 bg-[#080E21]/60 px-4 py-2 text-sm backdrop-blur">
+              <CircuitBoard className="h-4 w-4 text-[#FF41B4]" />
+              <span>Powered by Stellar Blockchain</span>
+            </div>
+            <h1 className="mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl md:text-6xl">
+              The Future of Decentralized Commerce
+            </h1>
+            <p className="mb-8 text-lg text-muted-foreground md:text-xl">
+              NexusMarket transforms traditional e-commerce by eliminating intermediaries and leveraging the Stellar
+              blockchain for secure, low-cost transactions.
+            </p>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button
+                size="lg"
+                className="group bg-gradient-to-r from-[#0075FF] to-[#00C2FF] text-white hover:from-[#0075FF]/90 hover:to-[#00C2FF]/90"
+                asChild
+              >
+                <Link href="/dashboard">
+                  Connect Wallet
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-[#0075FF] bg-transparent text-white hover:bg-[#0075FF]/10"
+                asChild
+              >
+                <Link href="/marketplace">Explore Marketplace</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20">
+        <div className="container">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">Powered by Blockchain Technology</h2>
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              Leveraging the Stellar blockchain and Soroban smart contracts for secure, transparent, and efficient
+              transactions.
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="group rounded-xl border border-[#0075FF]/20 bg-[#080E21]/60 p-6 backdrop-blur transition-all hover:border-[#0075FF]/40 hover:bg-[#0075FF]/5">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-[#0075FF] to-[#00C2FF] text-white">
+                <ShieldCheck className="h-6 w-6" />
+              </div>
+              <h3 className="mb-2 text-xl font-semibold">Secure Transactions</h3>
+              <p className="text-muted-foreground">
+                Every transaction is secured by blockchain technology, ensuring your data and assets remain protected.
+              </p>
+            </div>
+            <div className="group rounded-xl border border-[#0075FF]/20 bg-[#080E21]/60 p-6 backdrop-blur transition-all hover:border-[#0075FF]/40 hover:bg-[#0075FF]/5">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-[#9D4EDD] to-[#FF41B4] text-white">
+                <Zap className="h-6 w-6" />
+              </div>
+              <h3 className="mb-2 text-xl font-semibold">Low-Cost & Fast</h3>
+              <p className="text-muted-foreground">
+                Stellar blockchain provides near-instant transactions with minimal fees, making commerce accessible to
+                everyone.
+              </p>
+            </div>
+            <div className="group rounded-xl border border-[#0075FF]/20 bg-[#080E21]/60 p-6 backdrop-blur transition-all hover:border-[#0075FF]/40 hover:bg-[#0075FF]/5">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-[#00C2FF] to-[#0075FF] text-white">
+                <Rocket className="h-6 w-6" />
+              </div>
+              <h3 className="mb-2 text-xl font-semibold">Smart Contracts</h3>
+              <p className="text-muted-foreground">
+                Soroban smart contracts automate and secure marketplace operations, from escrow to reputation systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  );
+  )
 }
