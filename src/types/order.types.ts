@@ -15,7 +15,20 @@ export interface OrderItem {
   currency: string
   total: number
 }
-
+ export interface OrderProduct {
+  id: string;
+  status: string;
+  statusColor: string;
+  date: string;
+  items: number;
+  type: string;
+  hash?: string;
+  description: string;
+  quantity: string;
+  amount: string;
+  action?: string;
+  paid: boolean;
+}
 export interface ShippingDetails {
   name: string
   address: string
