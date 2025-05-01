@@ -74,9 +74,9 @@ export function Sidebar({ className }: SidebarProps) {
             <Button
               asChild
               variant="ghost"
-              className={cn("w-full justify-start", pathname === "/account/orders" && "bg-[#0075FF]/10 text-[#00C2FF]")}
+              className={cn("w-full justify-start", pathname === "order" && "bg-[#0075FF]/10 text-[#00C2FF]")}
             >
-              <Link href="/account/orders" className="flex items-center gap-2">
+              <Link href="/order" className="flex items-center gap-2">
                 <Package className="h-4 w-4" />
                 <span>Orders</span>
               </Link>
