@@ -16,6 +16,7 @@ import { SearchProvider, useSearch } from "@/components/search/SearchContext"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Search } from "@/components/search/Search"
 import { useSearchCache } from "@/hooks/useSearchCache"
+import ListProductModal from "@/components/modal/ListProductModal"
 
 // Mock data for categories
 const categories = [
@@ -125,6 +126,7 @@ function MarketplaceContent() {
   const searchParams = useSearchParams()
   const { query, view, isLoading, setIsLoading, filters, priceRange: currentPriceRange } = useSearch()
   const [isFilterOpen, setIsFilterOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   // Use a ref to track the current tab value
   const activeTabRef = useRef(searchParams.get("type") || "all")
@@ -187,6 +189,20 @@ function MarketplaceContent() {
       lastUrlRef.current = newUrl
       router.push(newUrl, { scroll: false })
     }
+  }
+
+  // Handle form submission from the modal
+  const handleModalSubmit = (product: {
+    title: string;
+    category: string;
+    price: string;
+    description: string;
+    image: File | null;
+  }) => {
+    // Here you would typically send the data to an API
+    console.log('New Product:', product)
+    // Close the modal after submission
+    setIsModalOpen(false)
   }
 
   // Update activeTab when URL type parameter changes
@@ -253,14 +269,13 @@ function MarketplaceContent() {
             </SheetContent>
           </Sheet>
 
+          {/* Modified List Product Button */}
           <Button
+            onClick={() => setIsModalOpen(true)} // Open modal on click
             className="bg-gradient-to-r from-[#0075FF] to-[#00C2FF] text-white hover:from-[#0075FF]/90 hover:to-[#00C2FF]/90"
-            asChild
           >
-            <Link href="/marketplace/list-product">
-              <ListPlus className="mr-2 h-4 w-4" />
-              List Product
-            </Link>
+            <ListPlus className="mr-2 h-4 w-4" />
+            List Product
           </Button>
         </div>
       </div>
@@ -285,6 +300,13 @@ function MarketplaceContent() {
           <Pagination totalPages={5} />
         </div>
       )}
+
+      {/* Render the ListProductModal */}
+      <ListProductModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleModalSubmit}
+      />
     </div>
   )
 }
